@@ -1,0 +1,99 @@
+name:
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  linters-formatters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ./node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: install
+        run: npm ci
+
+      - name: run lint
+        run: npm run lint
+
+      - name: run prettier
+        run: npm run prettier:check
+test:
+  needs: linters-formatters
+  runs-on: ubuntu-latest
+  timeout-minutes: 60
+
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: use Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20"
+
+    - name: cache node_modules
+      uses: actions/cache@v4
+      with:
+        path: |
+          ./node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Install
+      run: npm ci
+
+    - name: Setup Playwright
+      run: npx playwright install --with-deps
+
+    - name: Run Tests
+      run: npx playwright test
+
+    - name: Generate Allure Report
+      if: always()
+      run: npm run allure-report
+
+    - name: Upload results to Artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-results
+        path: allure-results
+        retention-days: 30
+
+    - name: Publish JUnit Report
+      uses: mikepenz/action-junit-report@v4
+      if: always() # always run even if the previous step fails
+      with:
+        report_paths: "junit-results/*.xml"
+
+    - name: Generate Test Summary Results
+      if: always()
+      run: npx github-actions-ctrf ctrf/ctrf-report.json
+
+    - name: Publish Test Summary Report
+      uses: daun/playwright-report-summary@v3
+      if: always()
+      with:
+        report-file: json-results/results.json
