@@ -1,68 +1,107 @@
-- name: Run Playwright tests
-  run: npx playwright test
-  continue-on-error: true
+name: CI for Assetwins Ui Automation tst
 
-- name: Upload allure results
-  uses: actions/upload-artifact@v4
-  if: always()
-  with:
-    name: allure-results
-    path: allure-results
-    retention-days: 14
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
-- name: Debug allure-results
-  if: always()
-  run: ls -R allure-results || echo "❌ allure-results folder missing"
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
-- name: Install Allure
-  if: always()
-  run: npm install -g allure-commandline --save-dev
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          
+      - name: Install
+        run: npm ci
+        
+      - name: Setup Playwright
+        run: npx playwright install --with-deps
+        
+      - name: Run Playwright tests
+        run: npx playwright test
+        continue-on-error: true
 
-- name: Generate Allure report
-  if: always()
-  run: allure generate allure-results --clean -o allure-report
+      - name: Upload allure results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results
+          path: allure-results
+          retention-days: 14
 
-- name: Upload Allure report
-  if: always()
-  uses: actions/upload-artifact@v4
-  with:
-    name: allure-report
-    path: allure-report
-    retention-days: 14
+      - name: Debug allure-results
+        if: always()
+        run: ls -R allure-results || echo "❌ allure-results folder missing"
 
-- name: Upload results to Artifacts
-  uses: actions/upload-artifact@v4
-  if: always()
-  with:
-    name: allure-results
-    path: allure-results
-    retention-days: 30
+      - name: Install Allure
+        if: always()
+        run: npm install -g allure-commandline --save-dev
 
-- name: Publish JUnit Report
-  uses: mikepenz/action-junit-report@v4
-  if: always()
-  with:
-  report_paths: "junit-results/*.xml"
+      - name: Generate Allure report
+        if: always()
+        run: allure generate allure-results --clean -o allure-report
 
-- name: Publish Test Summary Report
-  uses: daun/playwright-report-summary@v3
-  if: always()
-  with:
-    report-file: json-results/results.json
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
+          retention-days: 14
 
-- name: Install Netlify CLI
-  if: always()
-  run: npm install -g netlify-cli
+      - name: Upload results to Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results
+          path: allure-results
+          retention-days: 30
 
-- name: Check Netlify version
-  if: always()
-  run: netlify --version
+      - name: Publish JUnit Report
+        uses: mikepenz/action-junit-report@v4
+        if: always()
+        with:
+          report_paths: "junit-results/*.xml"
 
-- name: Deploy Allure report to Netlify (Production)
-  if: github.ref == 'refs/heads/main'
-  run: |
-    netlify deploy \
-      --dir=allure-report \
-      --site ${{ secrets.NETLIFY_SITE_ID }} \
-      --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
-      --prod
+      - name: Publish Test Summary Report
+        uses: daun/playwright-report-summary@v3
+        if: always()
+        with:
+          report-file: json-results/results.json
+
+      
+      - name: Install Netlify CLI
+        if: always()
+        run: npm install -g netlify-cli
+
+      - name: Check Netlify version
+        if: always()
+        run: netlify --version
+
+      - name: Deploy Allure report to Netlify (Production)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          netlify deploy \
+            --dir=allure-report \
+            --site ${{ secrets.NETLIFY_SITE_ID }} \
+            --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
+            --prod
