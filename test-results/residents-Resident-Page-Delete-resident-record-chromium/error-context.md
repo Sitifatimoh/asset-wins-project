@@ -1,0 +1,496 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - link [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7] [cursor=pointer]
+      - navigation [ref=e9]:
+        - generic [ref=e10]:
+          - heading [level=5] [ref=e11]: Dashboard
+          - list [ref=e12]:
+            - listitem [ref=e13]:
+              - link [ref=e14] [cursor=pointer]:
+                - /url: /
+                - img [ref=e15] [cursor=pointer]
+                - generic [ref=e22] [cursor=pointer]: Overview
+          - generic [ref=e23]:
+            - heading [level=5] [ref=e25]: Manage
+            - list [ref=e26]:
+              - listitem [ref=e27]:
+                - link [ref=e28] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f
+                  - img [ref=e30] [cursor=pointer]
+                  - generic [ref=e31] [cursor=pointer]: 1111ooooo
+              - listitem [ref=e32]:
+                - link [ref=e33] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents
+                  - img [ref=e34] [cursor=pointer]
+                  - generic [ref=e37] [cursor=pointer]: Residents
+              - listitem [ref=e38]:
+                - link [ref=e39] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/staff
+                  - img [ref=e40] [cursor=pointer]
+                  - generic [ref=e43] [cursor=pointer]: Staff
+              - listitem [ref=e44]:
+                - link [ref=e45] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/documents
+                  - img [ref=e46] [cursor=pointer]
+                  - generic [ref=e49] [cursor=pointer]: Documents
+              - listitem [ref=e50]:
+                - link [ref=e51] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/vendors
+                  - img [ref=e52] [cursor=pointer]
+                  - generic [ref=e56] [cursor=pointer]: Vendors
+          - generic [ref=e57]:
+            - heading [level=5] [ref=e59]: Tools
+            - list [ref=e60]:
+              - listitem [ref=e61]:
+                - link [ref=e62] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/tasks
+                  - img [ref=e63] [cursor=pointer]
+                  - generic [ref=e66] [cursor=pointer]: Tasks
+              - listitem [ref=e67]:
+                - link [ref=e68] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/projects
+                  - img [ref=e69] [cursor=pointer]
+                  - generic [ref=e71] [cursor=pointer]: Projects
+              - listitem [ref=e72]:
+                - link [ref=e73] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/maintenance
+                  - img [ref=e74] [cursor=pointer]
+                  - generic [ref=e77] [cursor=pointer]: Maintenance History
+              - listitem [ref=e78]:
+                - link [ref=e79] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/preventive
+                  - img [ref=e80] [cursor=pointer]
+                  - generic [ref=e84] [cursor=pointer]: Preventive Maintenance
+          - link [ref=e85] [cursor=pointer]:
+            - /url: /administrator
+            - text: Administration
+    - generic [ref=e86]:
+      - banner [ref=e87]:
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - paragraph [ref=e90]: Monday, August 25
+            - paragraph [ref=e91]: Good evening, Sitifatimoh
+          - generic [ref=e95]:
+            - log [ref=e97]
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e100]: Quick search
+                - combobox [ref=e102]
+              - img [ref=e105]
+          - generic [ref=e108]:
+            - button [ref=e109] [cursor=pointer]:
+              - img [ref=e110] [cursor=pointer]
+              - generic [ref=e111] [cursor=pointer]: Toggle language menu
+            - button [ref=e114] [cursor=pointer]:
+              - img [ref=e115] [cursor=pointer]
+              - generic [ref=e116] [cursor=pointer]: Toggle user menu
+            - button [ref=e118] [cursor=pointer]:
+              - img [ref=e120] [cursor=pointer]
+              - generic [ref=e121] [cursor=pointer]: Sitifatimoh Etae
+              - img [ref=e122] [cursor=pointer]
+      - main [ref=e124]:
+        - generic [ref=e125]:
+          - heading [level=5] [ref=e126]: Showing Owners For
+          - generic [ref=e127]:
+            - heading [level=1] [ref=e128]: 1111ooooo
+            - link [ref=e130] [cursor=pointer]:
+              - /url: /en/assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f
+              - img [ref=e131] [cursor=pointer]
+              - generic [ref=e133] [cursor=pointer]: Go back to property page
+        - generic [ref=e134]:
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - heading [level=2] [ref=e137]: Resident Owners
+              - generic [ref=e138]: "96"
+            - button [ref=e139] [cursor=pointer]:
+              - generic [ref=e140] [cursor=pointer]: Add
+              - img [ref=e141] [cursor=pointer]
+          - generic [ref=e142]:
+            - generic [ref=e145]:
+              - img [ref=e146]
+              - searchbox [ref=e149]
+            - generic [ref=e150]:
+              - button [ref=e152] [cursor=pointer]:
+                - generic [ref=e153] [cursor=pointer]: A-Z
+                - img [ref=e154] [cursor=pointer]
+              - generic [ref=e157]:
+                - heading [level=5] [ref=e158]: Select view
+                - generic [ref=e159]:
+                  - button [ref=e160] [cursor=pointer]:
+                    - img [ref=e161] [cursor=pointer]
+                  - button [ref=e164] [cursor=pointer]:
+                    - img [ref=e165] [cursor=pointer]
+          - generic [ref=e172]:
+            - generic [ref=e173]:
+              - link [ref=e174] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/2f649a0a-c652-4219-9999-b49852c2f250
+                - img [ref=e176] [cursor=pointer]
+              - generic [ref=e178]:
+                - link [ref=e179] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/2f649a0a-c652-4219-9999-b49852c2f250
+                  - text: Ahmad Gusikowski
+                - button [ref=e181] [cursor=pointer]:
+                  - img [ref=e182] [cursor=pointer]
+            - generic [ref=e183]:
+              - link [ref=e184] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/12e946e7-ee35-4b94-9e53-c3745e3745ca
+                - img [ref=e186] [cursor=pointer]
+              - generic [ref=e188]:
+                - link [ref=e189] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/12e946e7-ee35-4b94-9e53-c3745e3745ca
+                  - text: Alena Lowe-Hamill
+                - button [ref=e191] [cursor=pointer]:
+                  - img [ref=e192] [cursor=pointer]
+            - generic [ref=e193]:
+              - link [ref=e194] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/707ce25b-10a0-4677-91b1-3d0d455340e5
+                - img [ref=e196] [cursor=pointer]
+              - generic [ref=e198]:
+                - link [ref=e199] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/707ce25b-10a0-4677-91b1-3d0d455340e5
+                  - text: Alvera Muller
+                - button [ref=e201] [cursor=pointer]:
+                  - img [ref=e202] [cursor=pointer]
+            - generic [ref=e203]:
+              - link [ref=e204] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/01e3ce05-dfdd-443e-9932-14788df9b3d6
+                - img [ref=e206] [cursor=pointer]
+              - generic [ref=e208]:
+                - link [ref=e209] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/01e3ce05-dfdd-443e-9932-14788df9b3d6
+                  - text: Amir Ortiz
+                - button [ref=e211] [cursor=pointer]:
+                  - img [ref=e212] [cursor=pointer]
+            - generic [ref=e213]:
+              - link [ref=e214] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/ea90e63e-daa4-4b16-bff8-0d80a1745112
+                - img [ref=e216] [cursor=pointer]
+              - generic [ref=e218]:
+                - link [ref=e219] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/ea90e63e-daa4-4b16-bff8-0d80a1745112
+                  - text: Andy Mraz
+                - button [ref=e221] [cursor=pointer]:
+                  - img [ref=e222] [cursor=pointer]
+            - generic [ref=e223]:
+              - link [ref=e224] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/5783379b-afe7-430a-8409-4e553c6d2987
+                - img [ref=e226] [cursor=pointer]
+              - generic [ref=e228]:
+                - link [ref=e229] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/5783379b-afe7-430a-8409-4e553c6d2987
+                  - text: Annette Stracke
+                - button [ref=e231] [cursor=pointer]:
+                  - img [ref=e232] [cursor=pointer]
+            - generic [ref=e233]:
+              - link [ref=e234] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/e13bb3ff-b3ef-4451-954b-621eb07e01f3
+                - img [ref=e236] [cursor=pointer]
+              - generic [ref=e238]:
+                - link [ref=e239] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/e13bb3ff-b3ef-4451-954b-621eb07e01f3
+                  - text: Antoinette Pouros
+                - button [ref=e241] [cursor=pointer]:
+                  - img [ref=e242] [cursor=pointer]
+            - generic [ref=e243]:
+              - link [ref=e244] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/462a9609-fa57-43e3-b260-8bc383cb07ed
+                - img [ref=e246] [cursor=pointer]
+              - generic [ref=e248]:
+                - link [ref=e249] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/462a9609-fa57-43e3-b260-8bc383cb07ed
+                  - text: Arnoldo O'Reilly-Bruen
+                - button [ref=e251] [cursor=pointer]:
+                  - img [ref=e252] [cursor=pointer]
+            - generic [ref=e253]:
+              - link [ref=e254] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/80b9e35e-5a68-493f-b37d-3cfd288bf6fd
+                - img [ref=e256] [cursor=pointer]
+              - generic [ref=e258]:
+                - link [ref=e259] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/80b9e35e-5a68-493f-b37d-3cfd288bf6fd
+                  - text: Blaise Hane
+                - button [ref=e261] [cursor=pointer]:
+                  - img [ref=e262] [cursor=pointer]
+            - generic [ref=e263]:
+              - link [ref=e264] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/3633bb0c-3fa7-4f3d-b289-335c484fe7cc
+                - img [ref=e266] [cursor=pointer]
+              - generic [ref=e268]:
+                - link [ref=e269] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/3633bb0c-3fa7-4f3d-b289-335c484fe7cc
+                  - text: Brayan Bogisich
+                - button [ref=e271] [cursor=pointer]:
+                  - img [ref=e272] [cursor=pointer]
+            - generic [ref=e273]:
+              - link [ref=e274] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/49611377-4705-4aa0-9137-4c4c1e72606f
+                - img [ref=e276] [cursor=pointer]
+              - generic [ref=e278]:
+                - link [ref=e279] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/49611377-4705-4aa0-9137-4c4c1e72606f
+                  - text: Brook Gibson
+                - button [ref=e281] [cursor=pointer]:
+                  - img [ref=e282] [cursor=pointer]
+            - generic [ref=e283]:
+              - link [ref=e284] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/80fd8126-dbec-493e-a8c8-10ea14229cab
+                - img [ref=e286] [cursor=pointer]
+              - generic [ref=e288]:
+                - link [ref=e289] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/80fd8126-dbec-493e-a8c8-10ea14229cab
+                  - text: Carleton Moore
+                - button [ref=e291] [cursor=pointer]:
+                  - img [ref=e292] [cursor=pointer]
+            - generic [ref=e293]:
+              - link [ref=e294] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/ba0c44e0-6b07-4a4b-8125-ebe08ada13b8
+                - img [ref=e296] [cursor=pointer]
+              - generic [ref=e298]:
+                - link [ref=e299] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/ba0c44e0-6b07-4a4b-8125-ebe08ada13b8
+                  - text: Carlo Abshire
+                - button [ref=e301] [cursor=pointer]:
+                  - img [ref=e302] [cursor=pointer]
+            - generic [ref=e303]:
+              - link [ref=e304] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/887b747d-3291-436b-844c-11dc8e694172
+                - img [ref=e306] [cursor=pointer]
+              - generic [ref=e308]:
+                - link [ref=e309] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/887b747d-3291-436b-844c-11dc8e694172
+                  - text: Carmel Bergstrom
+                - button [ref=e311] [cursor=pointer]:
+                  - img [ref=e312] [cursor=pointer]
+            - generic [ref=e313]:
+              - link [ref=e314] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/5cff5062-cb30-4f90-8d41-4e61ded6edb0
+                - img [ref=e316] [cursor=pointer]
+              - generic [ref=e318]:
+                - link [ref=e319] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/5cff5062-cb30-4f90-8d41-4e61ded6edb0
+                  - text: Cassandre Harris
+                - button [ref=e321] [cursor=pointer]:
+                  - img [ref=e322] [cursor=pointer]
+            - generic [ref=e323]:
+              - link [ref=e324] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/060f519b-9184-4239-b719-dafa966e619e
+                - img [ref=e326] [cursor=pointer]
+              - generic [ref=e328]:
+                - link [ref=e329] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/060f519b-9184-4239-b719-dafa966e619e
+                  - text: Cedrick McClure
+                - button [ref=e331] [cursor=pointer]:
+                  - img [ref=e332] [cursor=pointer]
+            - generic [ref=e333]:
+              - link [ref=e334] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/d703d97b-0306-4d53-9550-ce2431bbe9a5
+                - img [ref=e336] [cursor=pointer]
+              - generic [ref=e338]:
+                - link [ref=e339] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/d703d97b-0306-4d53-9550-ce2431bbe9a5
+                  - text: Cesar Dickinson
+                - button [ref=e341] [cursor=pointer]:
+                  - img [ref=e342] [cursor=pointer]
+            - generic [ref=e343]:
+              - link [ref=e344] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/a1321b5f-1cb3-4d13-9ef9-00acbb818928
+                - img [ref=e346] [cursor=pointer]
+              - generic [ref=e348]:
+                - link [ref=e349] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/a1321b5f-1cb3-4d13-9ef9-00acbb818928
+                  - text: Cody Jones
+                - button [ref=e351] [cursor=pointer]:
+                  - img [ref=e352] [cursor=pointer]
+            - generic [ref=e353]:
+              - link [ref=e354] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/b37e6bbf-49d1-4a1d-aeaa-40dd7157f9c8
+                - img [ref=e356] [cursor=pointer]
+              - generic [ref=e358]:
+                - link [ref=e359] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/b37e6bbf-49d1-4a1d-aeaa-40dd7157f9c8
+                  - text: Cynthia Reichel
+                - button [ref=e361] [cursor=pointer]:
+                  - img [ref=e362] [cursor=pointer]
+            - generic [ref=e363]:
+              - link [ref=e364] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/e81b6c52-f7cd-49e6-b1d6-b183e23aa0ae
+                - img [ref=e366] [cursor=pointer]
+              - generic [ref=e368]:
+                - link [ref=e369] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/e81b6c52-f7cd-49e6-b1d6-b183e23aa0ae
+                  - text: Darion Roob
+                - button [ref=e371] [cursor=pointer]:
+                  - img [ref=e372] [cursor=pointer]
+            - generic [ref=e373]:
+              - link [ref=e374] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/f5b482c5-6f16-4173-8752-925b9ace9af2
+                - img [ref=e376] [cursor=pointer]
+              - generic [ref=e378]:
+                - link [ref=e379] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/f5b482c5-6f16-4173-8752-925b9ace9af2
+                  - text: Destiny Bashirian
+                - button [ref=e381] [cursor=pointer]:
+                  - img [ref=e382] [cursor=pointer]
+            - generic [ref=e383]:
+              - link [ref=e384] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/73441a7c-0394-494c-b164-6db27ddc3978
+                - img [ref=e386] [cursor=pointer]
+              - generic [ref=e388]:
+                - link [ref=e389] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/73441a7c-0394-494c-b164-6db27ddc3978
+                  - text: Domenico McCullough
+                - button [ref=e391] [cursor=pointer]:
+                  - img [ref=e392] [cursor=pointer]
+            - generic [ref=e393]:
+              - link [ref=e394] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/790138ea-4b39-4c3e-8355-22b0f58a9114
+                - img [ref=e396] [cursor=pointer]
+              - generic [ref=e398]:
+                - link [ref=e399] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/790138ea-4b39-4c3e-8355-22b0f58a9114
+                  - text: Dudley Mayer
+                - button [ref=e401] [cursor=pointer]:
+                  - img [ref=e402] [cursor=pointer]
+            - generic [ref=e403]:
+              - link [ref=e404] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/469acdcf-5b85-4f55-8e87-e966194d2c5b
+                - img [ref=e406] [cursor=pointer]
+              - generic [ref=e408]:
+                - link [ref=e409] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/469acdcf-5b85-4f55-8e87-e966194d2c5b
+                  - text: Earnestine Haley
+                - button [ref=e411] [cursor=pointer]:
+                  - img [ref=e412] [cursor=pointer]
+            - generic [ref=e413]:
+              - link [ref=e414] [cursor=pointer]:
+                - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/f71505a6-4711-43ba-a727-958044020eae
+                - img [ref=e416] [cursor=pointer]
+              - generic [ref=e418]:
+                - link [ref=e419] [cursor=pointer]:
+                  - /url: /assets/view/Property/9351a802-0256-47d3-b774-001d91987c3f/residents/edit/f71505a6-4711-43ba-a727-958044020eae
+                  - text: Elmer Considine
+                - button [ref=e421] [cursor=pointer]:
+                  - img [ref=e422] [cursor=pointer]
+          - generic [ref=e423]:
+            - generic [ref=e424]:
+              - button [disabled] [ref=e425]:
+                - img [ref=e426]
+                - generic [ref=e428]: Previous
+              - list [ref=e429]:
+                - listitem [ref=e430]:
+                  - button [ref=e431] [cursor=pointer]: "1"
+                - listitem [ref=e432]:
+                  - button [ref=e433] [cursor=pointer]: "2"
+                - listitem [ref=e434]:
+                  - button [ref=e435] [cursor=pointer]: "3"
+                - listitem [ref=e436]:
+                  - button [ref=e437] [cursor=pointer]: "4"
+                - listitem [ref=e438]:
+                  - button [ref=e439] [cursor=pointer]: "4"
+              - button [ref=e440] [cursor=pointer]:
+                - generic [ref=e441] [cursor=pointer]: Next
+                - img [ref=e442] [cursor=pointer]
+            - generic [ref=e444]:
+              - heading [level=6] [ref=e445]: Rows Per Page
+              - combobox [ref=e446] [cursor=pointer]:
+                - generic:
+                  - generic: "25"
+                - img [ref=e447] [cursor=pointer]
+  - list
+  - alert [ref=e449]
+  - dialog "New Resident" [ref=e451]:
+    - generic [ref=e452]:
+      - generic [ref=e453]:
+        - heading "New Resident" [level=2] [ref=e454]
+        - button "Close" [ref=e455] [cursor=pointer]:
+          - img [ref=e456] [cursor=pointer]
+      - generic [ref=e458]:
+        - generic [ref=e460]:
+          - heading "Javon West" [level=1] [ref=e461]
+          - button "Done" [ref=e463] [cursor=pointer]:
+            - generic [ref=e464] [cursor=pointer]: Done
+        - generic [ref=e465]:
+          - generic [ref=e466]:
+            - heading "Photo" [level=4] [ref=e467]
+            - generic [ref=e470]:
+              - button "Choose File" [ref=e471]
+              - img "image-upload-icon" [ref=e473]
+          - generic [ref=e474]:
+            - heading "Profile Details" [level=4] [ref=e475]
+            - generic [ref=e476]:
+              - combobox [ref=e477] [cursor=pointer]:
+                - generic [ref=e478] [cursor=pointer]: Title
+                - generic: Mr
+                - img [ref=e479] [cursor=pointer]
+              - combobox [ref=e481]
+            - generic [ref=e482]:
+              - generic [ref=e485]:
+                - textbox "First Name" [ref=e486]: Javon
+                - generic [ref=e487]: First Name
+              - generic [ref=e490]:
+                - textbox "Last Name" [ref=e491]: West
+                - generic [ref=e492]: Last Name
+            - generic [ref=e494]: 27 June 1981
+            - generic [ref=e495]:
+              - combobox [ref=e496] [cursor=pointer]:
+                - generic [ref=e497] [cursor=pointer]: Nationality
+                - generic:
+                  - generic: American
+                  - generic: (United States)
+                - img [ref=e498] [cursor=pointer]
+              - combobox [ref=e500]
+            - generic [ref=e502]:
+              - textbox "Preferences" [ref=e503]: wDACmJBcDw
+              - generic [ref=e504]: Preferences
+            - generic [ref=e506]:
+              - textbox "Contact No." [ref=e507]: "0468964706"
+              - generic [ref=e508]: Contact No.
+            - generic [ref=e512]:
+              - textbox "Email" [ref=e513]: Oswald_Runte-Gutmann@example.dev
+              - generic [ref=e514]: Email
+        - generic [ref=e515]:
+          - heading "Other Information" [level=4] [ref=e516]
+          - generic [ref=e517]:
+            - generic [ref=e518]:
+              - generic [ref=e520]:
+                - textbox "Label" [ref=e521]: dwmCnyMv
+                - generic [ref=e522]: Label
+              - generic [ref=e524]:
+                - textbox "Info" [ref=e525]: vbOXZcvxL
+                - generic [ref=e526]: Info
+            - button "Remove" [ref=e527] [cursor=pointer]
+          - generic [ref=e528]:
+            - generic [ref=e529]:
+              - generic [ref=e531]:
+                - textbox "Label" [ref=e532]: ZisgPHEb
+                - generic [ref=e533]: Label
+              - generic [ref=e535]:
+                - textbox "Info" [ref=e536]: TGppTEce
+                - generic [ref=e537]: Info
+            - button "Remove" [ref=e538] [cursor=pointer]
+          - generic [ref=e539]:
+            - generic [ref=e540]:
+              - generic [ref=e542]:
+                - textbox "Label" [ref=e543]: lnsktJa
+                - generic [ref=e544]: Label
+              - generic [ref=e546]:
+                - textbox "Info" [ref=e547]: lIlswBF
+                - generic [ref=e548]: Info
+            - button "Remove" [ref=e549] [cursor=pointer]
+          - generic [ref=e550]:
+            - generic [ref=e551]:
+              - generic [ref=e553]:
+                - textbox "Label" [ref=e554]: oxFKyoI
+                - generic [ref=e555]: Label
+              - generic [ref=e557]:
+                - textbox "Info" [active] [ref=e558]: XBplQ
+                - generic [ref=e559]: Info
+            - button "Remove" [ref=e560] [cursor=pointer]
+          - button "Add more" [ref=e561] [cursor=pointer]
+```
