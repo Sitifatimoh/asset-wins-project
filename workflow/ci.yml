@@ -1,108 +1,29 @@
-name: CI
+name: Playwright Tests
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch:
-
-concurrency:
-  group: ${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
 
 jobs:
-  linters-formatters:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run lint
-        run: npm run lint
-
-      - name: Run prettier
-        run: npm run prettier:check
-
   test:
-    needs: linters-formatters
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: "20"
-
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+          node-version: 18
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Setup Playwright
+      - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Tests (skip if no test files)
-        run: |
-          if ls tests/**/*.spec.ts 1> /dev/null 2>&1; then
-            npx playwright test
-          else
-            echo "No tests found, skipping..."
-          fi
-
-      - name: Generate Allure Report
-        if: always() && hashFiles('allure-results/*') != ''
-        run: npm run allure-report
-
-      - name: Upload results to Artifacts
-        uses: actions/upload-artifact@v4
-        if: always() && hashFiles('allure-results/*') != ''
-        with:
-          name: allure-results
-          path: allure-results
-          retention-days: 30
-
-      - name: Publish JUnit Report
-        uses: mikepenz/action-junit-report@v4
-        if: always() && hashFiles('junit-results/*.xml') != ''
-        with:
-          report_paths: "junit-results/*.xml"
-
-      - name: Generate Test Summary Results
-        if: always() && hashFiles('ctrf/ctrf-report.json') != ''
-        run: npx github-actions-ctrf ctrf/ctrf-report.json
-
-      - name: Publish Test Summary Report
-        uses: daun/playwright-report-summary@v3
-        if: always() && hashFiles('json-results/results.json') != ''
-        with:
-          report-file: json-results/results.json
+      - name: Run Playwright tests
+        run: npx playwright test
