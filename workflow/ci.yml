@@ -1,58 +1,68 @@
-name: Playwright Tests
+- name: Run Playwright tests
+  run: npx playwright test
+  continue-on-error: true
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+- name: Upload allure results
+  uses: actions/upload-artifact@v4
+  if: always()
+  with:
+    name: allure-results
+    path: allure-results
+    retention-days: 14
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
+- name: Debug allure-results
+  if: always()
+  run: ls -R allure-results || echo "❌ allure-results folder missing"
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+- name: Install Allure
+  if: always()
+  run: npm install -g allure-commandline --save-dev
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+- name: Generate Allure report
+  if: always()
+  run: allure generate allure-results --clean -o allure-report
 
-      - name: Install dependencies
-        run: npm install
+- name: Upload Allure report
+  if: always()
+  uses: actions/upload-artifact@v4
+  with:
+    name: allure-report
+    path: allure-report
+    retention-days: 14
 
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+- name: Upload results to Artifacts
+  uses: actions/upload-artifact@v4
+  if: always()
+  with:
+    name: allure-results
+    path: allure-results
+    retention-days: 30
 
-      - name: Run Playwright tests
-        run: npx playwright test
-        continue-on-error: true
+- name: Publish JUnit Report
+  uses: mikepenz/action-junit-report@v4
+  if: always()
+  with:
+  report_paths: "junit-results/*.xml"
 
-      - name: Upload allure results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: allure-results
-          path: allure-results
-          retention-days: 14
+- name: Publish Test Summary Report
+  uses: daun/playwright-report-summary@v3
+  if: always()
+  with:
+    report-file: json-results/results.json
 
-      - name: Debug allure-results
-        if: always()
-        run: ls -R allure-results || echo "❌ allure-results folder missing"
+- name: Install Netlify CLI
+  if: always()
+  run: npm install -g netlify-cli
 
-      - name: Install Allure
-        if: always()
-        run: npm install -g allure-commandline --save-dev
+- name: Check Netlify version
+  if: always()
+  run: netlify --version
 
-      - name: Generate Allure report
-        if: always()
-        run: allure generate allure-results --clean -o allure-report
-
-      - name: Upload Allure report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report
-          path: allure-report
-          retention-days: 14
+- name: Deploy Allure report to Netlify (Production)
+  if: github.ref == 'refs/heads/main'
+  run: |
+    netlify deploy \
+      --dir=allure-report \
+      --site ${{ secrets.NETLIFY_SITE_ID }} \
+      --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
+      --prod
