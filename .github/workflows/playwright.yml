@@ -30,7 +30,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --reporter=list,json=json-results/results.json
+        run: npx playwright test
         continue-on-error: true
 
       - name: Debug json-results
@@ -83,28 +83,9 @@ jobs:
         with:
           report-file: json-results/results.json
 
-      # -------------------------------
-      # Netlify Deploy
-      # -------------------------------
-      - name: Install Netlify CLI
-        if: always()
-        run: npm install -g netlify-cli
-
-      - name: Check Netlify version
-        if: always()
-        run: netlify --version
-
-      - name: Debug GitHub Ref
-        run: |
-          echo "github.ref      = ${{ github.ref }}"
-          echo "github.ref_name = ${{ github.ref_name }}"
-          echo "github.event_name = ${{ github.event_name }}"
-
-      - name: Deploy Allure report to Netlify (Production)
-        if: github.ref == 'refs/heads/main'
-        run: |
-          netlify deploy \
-            --dir=allure-report \
-            --site ${{ secrets.NETLIFY_SITE_ID }} \
-            --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
-            --prod
+      - name: Deploy Allure report to GitHub Pages
+        if: github.ref_name == 'main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
