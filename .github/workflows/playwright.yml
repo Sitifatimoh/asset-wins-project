@@ -79,7 +79,7 @@ jobs:
             --dir=allure-report \
             --site ${{ secrets.NETLIFY_SITE_ID }} \
             --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
-            --prod
+            --prod-if-unlocked
       - name: Add Netlify Deploy Button
         if: github.ref == 'refs/heads/main'
         uses: actions/github-script@v7
