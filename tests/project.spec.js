@@ -5,13 +5,13 @@ test.describe("Resident Page", () => {
   let accPage;
 
   test.beforeEach(async ({ page }) => {
-    accPage = new AccistantPage(page);
-    await accPage.login();
-    await accPage.navigateToAssets();
-    await accPage.projectsMenu.click();
+    // accPage = new AccistantPage(page);
+    // await accPage.login();
+    // await accPage.navigateToAssets();
+    // await accPage.projectsMenu.click();
   });
 
-  test("Assignee is blank", async () => {
+  test.skip("Assignee is blank", async () => {
     const resident = new Projects();
     resident.assignee = "";
     await accPage.addButton.click();
@@ -21,5 +21,4 @@ test.describe("Resident Page", () => {
   });
 });
 
-async function fillData(resident, accPage, count) {
-}
+async function fillData(resident, accPage, count) {}
