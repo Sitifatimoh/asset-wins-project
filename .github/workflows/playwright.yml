@@ -25,21 +25,26 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      # Run Playwright tests and generate Allure results
       - name: Run Playwright tests with Allure
         run: npm run test:report
         continue-on-error: true
 
+      # Install Allure CLI for report generation
       - name: Install Allure Commandline
         run: npm install -g allure-commandline --save-dev
 
+      # List Allure results for debugging
       - name: List allure-results
         if: always()
         run: ls -R ./allure-results || echo "No allure-results found"
 
+      # Generate Allure HTML report
       - name: Generate Allure Report
         if: always()
         run: npm run allure:generate
 
+      # Upload Allure report as artifact for next job
       - name: Upload Allure Report Artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -64,14 +69,18 @@ jobs:
       # -------------------------------
       # Netlify Deploy
       # -------------------------------
+
+      # Install Netlify CLI
       - name: Install Netlify CLI
         if: always()
         run: npm install -g netlify-cli
 
+      # Check Netlify CLI version
       - name: Check Netlify version
         if: always()
         run: netlify --version
 
+      # Deploy Allure report to Netlify (Production)
       - name: Deploy Allure report to Netlify (Production)
         if: github.ref == 'refs/heads/main'
         run: |
@@ -79,13 +88,14 @@ jobs:
             --dir=allure-report \
             --site ${{ secrets.NETLIFY_SITE_ID }} \
             --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
-            --prod-if-unlocked
+            --prod
+      # Add Netlify Deploy Button to GitHub summary (replace with your real Netlify URL)
       - name: Add Netlify Deploy Button
         if: github.ref == 'refs/heads/main'
         uses: actions/github-script@v7
         with:
           script: |
-            const url = "https://YOUR-SITE.netlify.app";
+            const url = "https://your-real-site-name.netlify.app"; // TODO: Replace with your Netlify site URL
             core.summary
               .addHeading("✅ Allure Report Deployed")
               .addLink("👉 Click here to view Allure Report", url)
