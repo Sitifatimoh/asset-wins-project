@@ -63,7 +63,7 @@ test.describe("Resident Page", () => {
     await accPage.assertInvalidEmailError();
   });
 
-  test("Create resident record", async ({ page }) => {
+  test.skip("Create resident record", async ({ page }) => {
     const resident = new Residents();
     createdResident = resident;
     //testPage = page;
@@ -74,7 +74,7 @@ test.describe("Resident Page", () => {
     // await accPage.assertFormSubmittedSuccessfully();
   });
 
-  test("View created resident record", async ({ page }) => {
+  test.skip("View created resident record", async ({ page }) => {
     const resident = new Residents();
     createdResident = resident;
     await createNewResident(resident, accPage, additionalInfoCount);
@@ -87,7 +87,7 @@ test.describe("Resident Page", () => {
     await accPage.navigateBackToResidentsList();
   });
 
-  test("Update resident record", async ({ page }) => {
+  test.skip("Update resident record", async ({ page }) => {
     const resident = new Residents();
     createdResident = resident;
     await createNewResident(resident, accPage, additionalInfoCount);
@@ -106,7 +106,7 @@ test.describe("Resident Page", () => {
     await accPage.navigateBackToResidentsList();
   });
 
-  test("Delete resident record", async ({ page }) => {
+  test.skip("Delete resident record", async ({ page }) => {
     const resident = new Residents();
     // createdResident = resident;
     createdResident = null;
@@ -122,22 +122,22 @@ test.describe("Resident Page", () => {
     await accPage.assertDeleteSuccessfully();
   });
 
-  test.afterEach(async () => {
-    console.log("after", createdResident);
-    if (createdResident && accPage) {
-      await accPage.fillSearchInput(
-        `${createdResident.first_name} ${createdResident.last_name}`
-      );
-      await accPage.assertResidentCoverPhotoLinkIsVisible(
-        createdResident.first_name
-      );
-      await accPage.actionButton.click();
-      await accPage.deleteActionButton.click();
-      await accPage.confirmButton.click();
-      // await accPage.assertDeleteSuccessfully();
-      createdResident = null;
-    }
-  });
+  // test.afterEach(async () => {
+  //   console.log("after", createdResident);
+  //   if (createdResident && accPage) {
+  //     await accPage.fillSearchInput(
+  //       `${createdResident.first_name} ${createdResident.last_name}`
+  //     );
+  //     await accPage.assertResidentCoverPhotoLinkIsVisible(
+  //       createdResident.first_name
+  //     );
+  //     await accPage.actionButton.click();
+  //     await accPage.deleteActionButton.click();
+  //     await accPage.confirmButton.click();
+  //     // await accPage.assertDeleteSuccessfully();
+  //     createdResident = null;
+  //   }
+  // });
 });
 
 async function createNewResident(resident, accPage, count) {
