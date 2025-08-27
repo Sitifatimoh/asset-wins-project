@@ -29,13 +29,16 @@ jobs:
         run: npm run test:report
         continue-on-error: true
 
+      - name: Install Allure Commandline
+        run: npm install -g allure-commandline --save-dev
+
+      - name: List allure-results
+        if: always()
+        run: ls -R ./allure-results || echo "No allure-results found"
+
       - name: Generate Allure Report
         if: always()
         run: npm run allure:generate
-
-      - name: List files for debug
-        if: always()
-        run: ls -R
 
       - name: Upload Allure Report Artifact
         if: always()
