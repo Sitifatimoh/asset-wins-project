@@ -16,6 +16,7 @@ const stats = summary.statistic;
 
 // เตรียมข้อความ Slack (Block Kit)
 const payload = {
+  text: `🧪 Test Results Summary: ${stats.passed} passed, ${stats.failed} failed. Full report: ${reportUrl}`,
   blocks: [
     {
       type: "section",
