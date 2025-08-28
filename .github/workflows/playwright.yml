@@ -104,8 +104,7 @@ jobs:
 
       # Notify Slack with the Allure report link
       - name: Notify Slack with summary
-        run: |
-          node notify-slack.js
+        run: node scripts/notify-slack.js
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPORT_URL: "https://<your-site>.netlify.app/allure-report"
