@@ -103,8 +103,9 @@ jobs:
               .write()
 
       # Notify Slack with the Allure report link
-      - name: Notify Slack
+      - name: Notify Slack with summary
         run: |
-          curl -X POST -H 'Content-type: application/json' \
-          --data "{\"text\":\"✅ Test completed! Allure Report: https://<your-site>.netlify.app/allure-report\"}" \
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          node notify-slack.js
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          REPORT_URL: "https://<your-site>.netlify.app/allure-report"
