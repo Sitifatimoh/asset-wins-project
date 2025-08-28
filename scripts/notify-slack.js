@@ -1,33 +1,12 @@
-import { request } from "https";
-
+import fetch from 'node-fetch';
 const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+const payload = { text: "Hello from CI/CD 👋" };
 
-const payload = {
-  text: "Hello from CI/CD 👋",
-};
-
-const data = JSON.stringify(payload);
-const url = new URL(webhookUrl);
-
-const options = {
-  hostname: url.hostname,
-  path: url.pathname + url.search,
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    "Content-Length": data.length,
-  },
-};
-
-const req = request(options, (res) => {
-  console.log(`Slack response: ${res.statusCode}`);
-  res.on("data", (d) => process.stdout.write(d));
-});
-
-req.on("error", (error) => {
-  console.error(`Error sending to Slack: ${error}`);
-});
-
-console.log("Payload being sent to Slack:", data);
-req.write(data);
-req.end();
+fetch(webhookUrl, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload)
+})
+.then(res => res.text())
+.then(console.log)
+.catch(console.error);
