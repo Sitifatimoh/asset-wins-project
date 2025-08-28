@@ -7,7 +7,10 @@ const reportUrl =
   process.env.REPORT_URL || "https://your-site.netlify.app/allure-report";
 
 // อ่าน summary.json
-const summaryPath = path.join(__dirname, "allure-report/widgets/summary.json");
+const summaryPath = path.join(
+  __dirname,
+  "../allure-report/widgets/summary.json"
+);
 const summary = JSON.parse(fs.readFileSync(summaryPath, "utf8"));
 const stats = summary.statistic;
 
