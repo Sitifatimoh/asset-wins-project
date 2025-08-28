@@ -19,7 +19,7 @@ const summary = JSON.parse(fs.readFileSync(summaryPath, "utf8"));
 const stats = summary.statistic;
 
 const payload = {
-  text: `🧪 Test Results Summary: ${stats.passed} passed, ${stats.failed} failed. Full report: ${reportUrl}`,
+  text: `🧪 Test Results Summary: `,
 };
 
 const data = JSON.stringify(payload);
