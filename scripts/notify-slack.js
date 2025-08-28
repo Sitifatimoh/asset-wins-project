@@ -4,7 +4,7 @@ const https = require("https");
 
 const webhookUrl = process.env.SLACK_WEBHOOK_URL; // ตั้งค่าใน CI/CD secret
 const reportUrl =
-  process.env.REPORT_URL || "https://your-site.netlify.app/allure-report";
+  process.env.REPORT_URL || "https://leafy-kheer-e0f382.netlify.app"; // URL ของ Allure report
 
 // อ่าน summary.json
 const summaryPath = path.join(
@@ -16,27 +16,7 @@ const stats = summary.statistic;
 
 // เตรียมข้อความ Slack (Block Kit)
 const payload = {
-  text: `🧪 Test Results Summary: ${stats.passed} passed, ${stats.failed} failed. Full report: ${reportUrl}`,
-  blocks: [
-    {
-      type: "section",
-      text: {
-        type: "mrkdwn",
-        text: `*🧪 Test Results Summary*\n<${reportUrl}|View full Allure Report>`,
-      },
-    },
-    {
-      type: "section",
-      fields: [
-        { type: "mrkdwn", text: `*✅ Passed:* ${stats.passed}` },
-        { type: "mrkdwn", text: `*❌ Failed:* ${stats.failed}` },
-        { type: "mrkdwn", text: `*⚠️ Broken:* ${stats.broken}` },
-        { type: "mrkdwn", text: `*⏭️ Skipped:* ${stats.skipped}` },
-        { type: "mrkdwn", text: `*❓ Unknown:* ${stats.unknown}` },
-        { type: "mrkdwn", text: `*📊 Total:* ${stats.total}` },
-      ],
-    },
-  ],
+  text: "✅ Test completed! See Allure Report: " + reportUrl,
 };
 
 // ส่งไป Slack
