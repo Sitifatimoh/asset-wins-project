@@ -107,4 +107,4 @@ jobs:
         run: node scripts/notify-slack.js
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          REPORT_URL: "https://<your-site>.netlify.app/allure-report"
+          REPORT_URL: "https://leafy-kheer-e0f382.netlify.app"
