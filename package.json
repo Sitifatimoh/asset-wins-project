@@ -22,6 +22,7 @@
     "allure-playwright": "^3.3.3"
   },
   "dependencies": {
-    "dotenv": "^17.2.1"
+    "dotenv": "^17.2.1",
+    "node-fetch": "^3.3.2"
   }
 }
