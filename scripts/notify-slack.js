@@ -20,26 +20,6 @@ const stats = summary.statistic;
 
 const payload = {
   text: `🧪 Test Results Summary: ${stats.passed} passed, ${stats.failed} failed. Full report: ${reportUrl}`,
-  blocks: [
-    {
-      type: "section",
-      text: {
-        type: "mrkdwn",
-        text: `*🧪 Test Results Summary*\n<${reportUrl}|View full Allure Report>`,
-      },
-    },
-    {
-      type: "section",
-      fields: [
-        { type: "mrkdwn", text: `*✅ Passed:* ${stats.passed}` },
-        { type: "mrkdwn", text: `*❌ Failed:* ${stats.failed}` },
-        { type: "mrkdwn", text: `*⚠️ Broken:* ${stats.broken}` },
-        { type: "mrkdwn", text: `*⏭️ Skipped:* ${stats.skipped}` },
-        { type: "mrkdwn", text: `*❓ Unknown:* ${stats.unknown}` },
-        { type: "mrkdwn", text: `*📊 Total:* ${stats.total}` },
-      ],
-    },
-  ],
 };
 
 const data = JSON.stringify(payload);
