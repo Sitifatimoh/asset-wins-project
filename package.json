@@ -10,6 +10,7 @@
     "allure:serve": "allure serve ./allure-results",
     "build": "npm run build"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",

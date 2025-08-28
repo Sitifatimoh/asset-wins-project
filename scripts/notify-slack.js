@@ -28,5 +28,6 @@ req.on("error", (error) => {
   console.error(`Error sending to Slack: ${error}`);
 });
 
+console.log("Payload being sent to Slack:", data);
 req.write(data);
 req.end();
