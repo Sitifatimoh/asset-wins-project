@@ -95,9 +95,16 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const url = "https://your-real-site-name.netlify.app"; // TODO: Replace with your Netlify site URL
+            const url = "https://leafy-kheer-e0f382.netlify.app"; // TODO: Replace with your Netlify site URL
             core.summary
               .addHeading("✅ Allure Report Deployed")
               .addLink("👉 Click here to view Allure Report", url)
               .addEOL()
               .write()
+
+      # Notify Slack with the Allure report link
+      - name: Notify Slack
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data "{\"text\":\"✅ Test completed! Allure Report: https://<your-site>.netlify.app/allure-report\"}" \
+          ${{ secrets.SLACK_WEBHOOK_URL }}
