@@ -1,48 +1,17 @@
-import fs from "fs";
-import path from "path";
-import https from "https";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import fetch from "node-fetch";
+import "dotenv/config";
 
 const webhookUrl = process.env.SLACK_WEBHOOK_URL;
-const reportUrl =
-  process.env.REPORT_URL || "https://your-site.netlify.app/allure-report";
+const payload = { text: "Hello from CI/CD 👋" };
 
-// อ่าน summary.json
-const summaryPath = path.join(
-  __dirname,
-  "../allure-report/widgets/summary.json"
-);
-const summary = JSON.parse(fs.readFileSync(summaryPath, "utf8"));
-const stats = summary.statistic;
+console.log("webhookUrl=", webhookUrl);
+console.log("payload=", payload);
 
-const payload = {
-  text: `🧪 Test Results Summary: `,
-};
-
-const data = JSON.stringify(payload);
-const url = new URL(webhookUrl);
-
-const options = {
-  hostname: url.hostname,
-  path: url.pathname + url.search,
+fetch(webhookUrl, {
   method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    "Content-Length": data.length,
-  },
-};
-
-const req = https.request(options, (res) => {
-  console.log(`Slack response: ${res.statusCode}`);
-  res.on("data", (d) => process.stdout.write(d));
-});
-
-req.on("error", (error) => {
-  console.error(`Error sending to Slack: ${error}`);
-});
-
-req.write(data);
-req.end();
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload),
+})
+  .then((res) => res.text())
+  .then(console.log)
+  .catch(console.error);
