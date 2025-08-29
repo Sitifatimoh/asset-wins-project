@@ -60,27 +60,33 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Download Allure Report Artifact
         uses: actions/download-artifact@v4
         with:
           name: allure-report
           path: ./allure-report
 
+      # ✅ ติดตั้ง dependencies ให้ใช้ notify-slack.js ได้
+      - name: Install dependencies
+        run: npm install
+
       # -------------------------------
       # Netlify Deploy
       # -------------------------------
 
-      # Install Netlify CLI
       - name: Install Netlify CLI
         if: always()
         run: npm install -g netlify-cli
 
-      # Check Netlify CLI version
       - name: Check Netlify version
         if: always()
         run: netlify --version
 
-      # Deploy Allure report to Netlify (Production)
       - name: Deploy Allure report to Netlify (Production)
         if: github.ref == 'refs/heads/main'
         run: |
@@ -89,7 +95,7 @@ jobs:
             --site ${{ secrets.NETLIFY_SITE_ID }} \
             --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
             --prod
-      # Add Netlify Deploy Button to GitHub summary (replace with your real Netlify URL)
+
       - name: Add Netlify Deploy Button
         if: github.ref == 'refs/heads/main'
         uses: actions/github-script@v7
